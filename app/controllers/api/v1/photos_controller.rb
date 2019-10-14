@@ -10,8 +10,8 @@ module Api
               begin
                 if (params[:page].to_i < 1) || (params[:limit].to_i < 1) || params[:page].blank? || params[:user_id].blank? ||  params[:limit].blank?
                   bad_request
-                else  
-                  get_time_lines
+                else
+                   get_time_lines
                 end 
               rescue => exception 
                 p exception.inspect

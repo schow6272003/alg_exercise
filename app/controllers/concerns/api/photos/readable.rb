@@ -9,11 +9,15 @@ module Api
                  page = params[:page]
                  limit = params[:limit]
                  offset =  (page.to_i - 1) * limit.to_i
-                 photos =  @current_user.photos.limit(limit).offset(offset)
+               
+                  photos = @current_user.photos.page(page).per(limit)
+               #   photos =  @current_user.photos.limit(limit).offset(offset)
                  if photos.blank?
                     request_not_found
                  else
-                    response = parse_paginating(photos, page, limit, @current_user.id)
+                  
+                  response = photos
+                  #   response = parse_paginating(photos, page, limit, @current_user.id)
                     request_success_with_content response 
                  end
               end

@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_192240) do
+ActiveRecord::Schema.define(version: 2019_10_13_030348) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id", "followee_id"], name: "index_connections_on_follower_id_and_followee_id", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_11_192240) do
     t.integer "photo_id"
     t.integer "user_id"
     t.boolean "enable", default: true
+    t.index ["photo_id", "user_id"], name: "index_favorites_on_photo_id_and_user_id", unique: true
     t.index ["photo_id"], name: "index_favorites_on_photo_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end

@@ -5,7 +5,7 @@ module Api
             
             private 
               def follow_user 
-                relationship = @current_user.followees.build(follow_params)
+                relationship = @current_user.followee_follows.build(follow_params)
                  if relationship.save!
                     request_created
                  end

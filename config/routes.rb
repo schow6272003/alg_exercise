@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   concern :connection_base do
     resources :connections
+    get "connection_list"  =>  "connections#connection_list"
   end
 
   namespace :api, :defaults => {:format => :json} do
