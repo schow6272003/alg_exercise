@@ -6,36 +6,19 @@ module Api
             
             private 
               def get_time_lines
-                 page = params[:page]
-                 limit = params[:limit]
-                 offset =  (page.to_i - 1) * limit.to_i
-               
-                  photos = @current_user.photos.page(page).per(limit)
-               #   photos =  @current_user.photos.limit(limit).offset(offset)
+                 photos =  @current_user.photos.page(params[:page]).per(params[:limit])
                  if photos.blank?
                     request_not_found
                  else
-                  
-                  response = photos
-                  #   response = parse_paginating(photos, page, limit, @current_user.id)
-                    request_success_with_content response 
+                  request_success_with_content get_response(photos, page, limit)
                  end
               end
 
-              def parse_paginating(records, page, limit, user_id)
-                total_records = Photo.all.count
-                divider, remainder = total_records.divmod(limit.to_i)
-                total_pages =  divider + remainder
-                next_page =  page.to_i + 1
-                next_link = "#{request.base_url}#{api_v1_get_time_lines_path}?user_id=#{user_id}&page=#{next_page}&limit=#{limit}"
-                {
-                  records: records,
-                  total_records: total_records,
-                  paginating: { 
-                      total_pages: total_pages,
-                      next: next_link}
-                }
-              end 
+              def get_response(photos, page, limit)
+                options = {each_serializer: PhotoSerializer, serialization_context: ActiveModelSerializers::SerializationContext.new(request)}
+                result  = ActiveModelSerializers::SerializableResource.new(photos,  options).as_json
+                {records: result[:data], links: result[:links]}
+               end 
          end 
     end 
 end

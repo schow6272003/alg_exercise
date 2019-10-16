@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   concern :user_base  do 
     resources :users
   end
+
+  concern :csv_base do
+    resources :csvs
+  end 
   
   concern :photo_base do
     resources  :photos 
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
       concerns :photo_base
       concerns :favorite_base
       concerns :connection_base
+      concerns :csv_base
     end 
   end
 end
