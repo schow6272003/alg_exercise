@@ -51,10 +51,9 @@ method: Post
 request params:
 { 
    user_id: 1,
-   photo: {
-	       name: "Lake Forest Trip", 
-           url: "https://picsum.photos/200"
-	      }
+   photo: { name: "Lake Forest Trip", 
+            url: "https://picsum.photos/200"
+          }
 }
 ```
 #### Delete Photo
@@ -74,10 +73,9 @@ url: http://localhost:3000/api/v1/users
 method: Post
 request params:
 { 
-   user: {
-		   first_name: Kevin,
-		   last_name: Johnson,
-		   email: kj@gmail.com
+   user: { first_name: Kevin,
+           last_name: Johnson,
+           email: kj@gmail.com
 	     } 
 }
 ```
@@ -88,10 +86,9 @@ method: Put
 request params:
 { 
    id: 1 (user id),
-   user: {
-		   first_name: Kevin,
-		   last_name: Johnson,
-		   email: kj@gmail.com
+   user: { first_name: Kevin,
+           last_name: Johnson,
+           email: kj@gmail.com
 	     } 
 }
 ```
@@ -112,8 +109,8 @@ method: Post
 request params:
 { 
    user_id: 1,
-   favorite: {
-               photo_id: 123
+   favorite: { 
+              photo_id: 123
              }
 }
 ```
@@ -134,9 +131,8 @@ method: Post
 request params:
 { 
    user_id: 1,
-   connection: {
-                 follower_id: 1,
-				 followee_id  5
+   connection: { follower_id: 1,
+                 followee_id  5
                }
 }
 ```
@@ -147,9 +143,8 @@ method: Delete
 request params:
 { 
    user_id: 1,
-   connection: {
-                 follower_id: 1,
-				 followee_id: 5
+   connection: { follower_id: 1,
+                 followee_id: 5
                }
 }
 ```
