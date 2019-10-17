@@ -52,8 +52,7 @@ request params:
 { 
    user_id: 1,
    photo: { name: "Lake Forest Trip", 
-            url: "https://picsum.photos/200"
-          }
+            url: "https://picsum.photos/200" }
 }
 ```
 #### Delete Photo
@@ -75,8 +74,7 @@ request params:
 { 
    user: { first_name: Kevin,
            last_name: Johnson,
-           email: kj@gmail.com
-	     } 
+           email: kj@gmail.co } 
 }
 ```
 #### Update User
@@ -88,9 +86,8 @@ request params:
    id: 1 (user id),
    user: { first_name: Kevin,
            last_name: Johnson,
-           email: kj@gmail.com
-	     } 
-}
+           email: kj@gmail.com } 
+}  
 ```
 #### Delete User
 ```
@@ -109,9 +106,7 @@ method: Post
 request params:
 { 
    user_id: 1,
-   favorite: { 
-              photo_id: 123
-             }
+   favorite: { photo_id: 123 }
 }
 ```
 #### Unfavorite a photo
@@ -132,8 +127,7 @@ request params:
 { 
    user_id: 1,
    connection: { follower_id: 1,
-                 followee_id  5
-               }
+                 followee_id  5 }
 }
 ```
 #### Unfollow a user
@@ -144,8 +138,7 @@ request params:
 { 
    user_id: 1,
    connection: { follower_id: 1,
-                 followee_id: 5
-               }
+                 followee_id: 5 }
 }
 ```
 #### List all followers and followees of a user
