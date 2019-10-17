@@ -5,9 +5,9 @@ module Api
             
             private
               def delete_relationship
-                 photo = @current_user.photos.find_by_id(params[:id])
-                 if !photo.blank?
-                    photo.destroy
+                 connection = Connection.where(:follower_id => params[:follower_id] ,:followee_id => params[:followee_id])
+                 if !connection.blank?
+                    connection.destroy
                     request_success_no_content
                  else
                     request_not_found

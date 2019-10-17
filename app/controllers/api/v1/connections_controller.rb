@@ -26,7 +26,7 @@ module Api
 
             def destroy
               begin
-                unfavorite_photo
+                delete_relationship
               rescue => exception 
                 p exception.inspect
                 internal_server_error exception.inspect
