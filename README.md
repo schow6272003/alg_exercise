@@ -7,7 +7,7 @@ This repository contains code base for two coding exercises from AGL coding chal
 
 ```
 git clone https://github.com/schow6272003/alg_exercise.git
-cd selfiegram
+cd alg_exercise
 bundle install
 rake db:migrate
 rake db:seed
